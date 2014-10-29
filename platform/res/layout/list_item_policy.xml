@@ -1,0 +1,50 @@
+<ch.ethz.csg.oppnet.ui.CheckableRelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false" >
+
+    <TextView
+        android:id="@+id/policyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/radioButton"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:focusable="false" />
+
+    <TextView
+        android:id="@+id/policyActiveFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/policyTitle"
+        android:layout_alignTop="@+id/policyTitle"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:text="@string/policy_item_active"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/policyDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/policyTitle"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/policyTitle"
+        android:lines="2"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:focusable="false" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/policyDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="8dp"
+        android:focusable="false" />
+
+</ch.ethz.csg.oppnet.ui.CheckableRelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<protocols>
+    <protocol>
+        <name>ch.ethz.csg.oppnet.example.chat</name>
+        <encrypted>false</encrypted>
+        <authenticated>true</authenticated>
+        <defaultTTL>3600</defaultTTL>
+    </protocol>
+</protocols>

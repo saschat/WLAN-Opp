@@ -1,0 +1,68 @@
+package ch.ethz.csg.oppnet.protobuf;
+
+option java_package = "ch.ethz.csg.oppnet.protobuf";
+option java_outer_classname = "OppNetProtos";
+
+// DISCOVERY BEACON
+
+message Beacon {
+    enum BeaconType {
+        ORIGINAL = 0;
+        REPLY = 1;
+    }
+
+    // TODO: make the following fields required?
+
+    // The type of beacon
+    optional BeaconType beacon_type = 1 [default = ORIGINAL];
+    // The id of this beacon
+    optional uint32 beacon_id = 2;
+    // The time this beacon has been created
+    optional uint64 time_created = 3;
+    //optional sint32 time_adjustment = 4;
+    // The MAC of this beacon
+    //optional bytes mac = 4;
+
+    // The sender node of this beacon
+    optional Node sender = 10;
+    // A list of nodes which were recently connected to the sender node
+    repeated Node neighbors = 20;
+}
+
+message Node {
+    // The node id
+    optional bytes node_id = 1;
+    // The name of the network this node has been seen last
+    optional string network = 2;
+    // The IPv4 address of the node, if any
+    optional bytes ip4_address = 3;
+    // The IPv6 address of the node, if any
+    optional bytes ip6_address = 4;
+    // The Bluetooth MAC address, if any
+    optional bytes bt_address = 5;
+    // If this node is capable of receiving multicast packets
+    optional bool multicast_capable = 6 [default = true];
+    // The time this node has been last seen
+    optional uint64 time_lastseen = 7;
+    optional uint32 delta_lastseen = 8;
+
+    // The hashes of all supported protocols (each 20 bytes) by this node
+    repeated bytes protocols = 20;
+
+    // The likelihood this node will take over as access point in the next round
+    optional int32 ap_likelihood = 30;
+
+}
+
+// DATA EXCHANGE
+
+message TransportPacket {
+    optional bytes source_node = 1;
+    optional bytes target_node = 2;
+    optional bytes protocol = 3;
+    optional uint64 ttl = 4;
+
+    optional bytes mac = 10;
+
+    optional bytes payload = 20;
+}

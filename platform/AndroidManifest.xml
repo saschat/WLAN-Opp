@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ch.ethz.csg.oppnet"
+    android:versionCode="5"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:maxSdkVersion="19"
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="ch.ethz.csg.oppnet.core.OppNetApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <!-- ACTIVITIES -->
+        <activity
+            android:name="ch.ethz.csg.oppnet.ui.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- currently unused/useless -->
+        <activity
+            android:name="ch.ethz.csg.oppnet.ui.SettingsActivity"
+            android:label="@string/title_activity_pref" />
+
+        <!-- SERVICES -->
+        <service
+            android:name="ch.ethz.csg.oppnet.core.ConnectorService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="ch.ethz.csg.oppnet.action.START_OPPNET" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="ch.ethz.csg.oppnet.apps.AppRegistrationService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="ch.ethz.csg.oppnet.action.ISSUE_API_KEY" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="ch.ethz.csg.oppnet.core.SupervisorService"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="ch.ethz.csg.oppnet.exchange.PacketSenderService"
+            android:exported="false" >
+        </service>
+
+        <!-- BROADCAST RECEIVERS -->
+        <receiver
+            android:name="ch.ethz.csg.oppnet.apps.PackageChangeReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="ch.ethz.csg.oppnet.core.SupervisorService$WakeUpReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- CONTENT PROVIDERS -->
+        <provider
+            android:name="ch.ethz.csg.oppnet.data.OppNetProvider"
+            android:authorities="ch.ethz.csg.oppnet.dataprovider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+    </application>
+
+</manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ch.ethz.csg.oppnet.lib"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="19" />
+
+    <application>
+        <receiver
+            android:name="ch.ethz.csg.oppnet.lib.ipc.ApiKeyReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="ch.ethz.csg.oppnet.action.ISSUE_API_KEY" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

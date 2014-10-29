@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OppNet</string>
+
+    <!-- Activity labels -->
+    <string name="title_activity_main">OppNet</string>
+    <string name="title_activity_pref">Settings</string>
+
+    <!-- ActionBar action labels -->
+    <string name="action_settings">Settings</string>
+    <string name="action_reset_db">Reset DB</string>
+
+    <!-- Labels in policy list fragment -->
+    <string name="policy_item_active">ACTIVE</string>
+    <string name="button_policy_activate">Activate</string>
+    <string name="button_policy_apply">Apply</string>
+
+    <!-- Preference labels/descriptions - deprecated/unused -->
+    <string name="pref_foreground_key">pref_foreground_operation</string>
+    <string name="pref_foreground_name">Allow foreground usage</string>
+    <string name="pref_foreground_disabled">OppNet stops searching for neighbors when the screen is on.</string>
+    <string name="pref_foreground_enabled">OppNet can always search for neighbors.</string>
+
+</resources>
