@@ -17,13 +17,13 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:23.3.0'
     compile project(':lib')
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "20.0.0"
+    buildToolsVersion "23.0.0"
 
     sourceSets {
         main {
