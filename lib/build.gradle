@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.13.1'
+        classpath 'com.android.tools.build:gradle:2.0.0'
     }
 }
 
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.guava:guava:16.0.1'
+    compile 'com.google.guava:guava:19.0'
 }
 
 android {
@@ -41,5 +41,5 @@ android {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+    gradleVersion = '2.8'
 }
